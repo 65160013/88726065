@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #homebtn {
+        font-size: 20px;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: inherit;
+        text-decoration: none;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Online Orders and Payments</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="order">
+        <a href="./main.html">
+            <span id="homebtn"><u>Home: กลับหน้าแรก</u></span>
+        </a>
+        <br />
+        <br />
+        <br />
+        <h2>Online Orders and Payments</h2>
+        <form action="process-order.php" method="post">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h3>Billing Information</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="name">Full Name: </label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td><input type="text" id="address" name="address" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required /></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h3>Order Details</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="product">Select Product:</label></td>
+                    <td>
+                        <select id="product" name="product" required>
+                            <option value="product1">Product 1</option>
+                            <option value="product2">Product 2</option>
+                            <option value="product3">Product 3</option>
+                            <option value="product4">Product 4</option>
+                        </select>
+                        <label for="quantity">Quantity: </label>
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="1" required </td>
+                </tr>
+                <tr>
+                    <td><label for="product">Select Product:</label> </td>
+                    <td>
+                        <select id="product" name="product" required>
+                            <option value="product1">Product 1</option>
+                            <option value="product2">Product 2</option>
+                            <option value="product3">Product 3</option>
+                            <option value="product4">Product 4</option>
+                        </select>
+                        <label for="quantity">Quantity: </label>
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="1" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="product">Select Product:</label></td>
+                    <td>
+                        <select id="product" name="product" required>
+                            <option value="product1">Product 1</option>
+                            <option value="product2">Product 2</option>
+                            <option value="product3">Product 3</option>
+                            <option value="product4">Product 4</option>
+                        </select>
+                        <label for="quantity">Quantity:</label>
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="1" required>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h3>Payment Information</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="card-type">Card Type:</label></td>
+                    <td>
+                        <input type="radio" id="visa" name="card-type" value="visa" required> <label
+                            for="credit card">Credit
+                            Card</label>
+                        <input type="radio" id="mastercard" name="card-type" value="mastercard" required> <label
+                            for="debit card">Debit Card</label>
+                        <input type="radio" id="paypal" name="payment_method" value="paypal" required <label
+                            for="paypal">PayPal</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="card-number">Card Number: </label></td>
+                    <td>
+                        <input type="text" id="card-number" name="card-number" pattern="\d{16}"
+                            title="16-digit card number" required ▷ </td>
+                </tr>
+                <tr>
+                    <td><label for="expiry-date">Expiry Date: </label></td>
+                    <td>
+                        <input type="month" id="expiry-date" name="expiry-date" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cvv">CVV: </label></td>
+                    <td>
+                        <input type="text" id="cvv" name="cvv" pattern="\d{3}" title="3-digit CVV" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center"> <button type="submit">Submit Order</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

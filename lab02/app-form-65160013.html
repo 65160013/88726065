@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    body {
+        /* font-family: 'Itim', sans-serif; */
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .content {
+        text-align: center;
+        max-width: auto;
+        width: 50%;
+        margin: auto;
+        flex-wrap: wrap;
+
+    }
+
+    .content footer {
+        font-family: 'Itim', sans-serif;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin-right: 20px;
+        padding-right: 10px;
+    }
+
+    .content p {
+        font-size: x-small;
+    }
+
+    /* ------------------------------------------- */
+
+    article {
+        display: inline-block;
+        text-align: left;
+        font-size: large;
+    }
+
+    main {
+        font-size: medium;
+    }
+
+    header {
+        padding: 0px;
+    }
+
+    label {
+        vertical-align: top;
+        /* padding-right: 5px; */
+    }
+
+    input {
+        margin-top: 5px;
+    }
+
+    textarea {
+        width: 100%;
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    tr {
+        display: flex;
+        margin-bottom: 0;
+        padding-top: 1px;
+    }
+
+    td {
+        padding-right: 5px;
+    }
+
+    button {
+        margin-top: 5px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet" />
+    <title>HW#2 65160013</title>
+</head>
+
+<body>
+    <div class="content">
+        <article>
+            <header>
+                <h2>ใบสมัครงาน</h2>
+            </header>
+            <main>
+                <center>
+                    <form action="#" method="get">
+                        <table>
+                            <div.f1>
+                                <!-- FullName -->
+                                <td><label for="fname">ชื่อ *</label><br />
+                                    <input type="text" id="fname" name="FirstName:" required>
+                                </td>
+
+                                <td><label for="lname">นามสกุล *</label><br />
+                                    <input type="text" id="lname" name="LastName:" required>
+                                </td>
+                            </div.f1>
+
+
+                            <div.f2>
+                                <!-- Email -->
+                                <tr>
+                                    <td><label for="email">อีเมล *</label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="email" id="email" name="Email:" size="46.9" required>
+                                    </td>
+                                </tr>
+
+                                <!-- Website -->
+                                <tr>
+                                    <td><label for="portfolio">เว็บไซต์ผลงาน</label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="url" id="portfolio" name="Portfolio:" size="46.9"
+                                            placeholder="http://">
+                                    </td>
+                                </tr>
+
+                                <!-- Job Position -->
+                                <tr>
+                                    <td><label for="job_position">ตำแหน่งที่ต้องการสมัคร *</label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="text" id="job_position" name="Job_Position:"
+                                            size="46.9" required>
+                                    </td>
+                                </tr>
+                            </div.f2>
+
+
+                            <div.f3>
+                                <!-- Salary | Start Job -->
+
+                                <td><label for="salary">เงินเดือนที่ต้องการ</label><br />
+                                    <input type="number" id="salary" name="Salary:">
+                                </td>
+
+                                <td><label for="start_job">จะเริ่มงานได้เมื่อไหร่</label><br />
+                                    <input type="text" id="start_job" name="StartJob:">
+                                </td>
+
+                                <!-- Phone | HomePhone -->
+                                <tr>
+                                    <td><label for="phone">โทรศัพท์มือถือ *</label><br />
+                                        <input type="tel" id="phone" name="Phone:" pattern="\d{10}"
+                                            title="10-digit phone number" required>
+                                    </td>
+
+                                    <td><label for="homephone">โทรศัพท์บ้าน</label><br />
+                                        <input type="tel" id="homephone" name="HomePhone:" pattern="\d{10}"
+                                            title="10-digit homephone number">
+                                    </td>
+                                </tr>
+                            </div.f3>
+
+
+                            <div.f4>
+                                <!-- Address -->
+                                <tr>
+                                    <td><label for="address">คุณสะดวกที่จะย้ายที่อยู่หรือไม่</label></td>
+                                </tr>
+                                <td>
+                                    <input type="radio" name="address" id="handy" value="สะดวก" required>
+                                    <label for="handy">สะดวก</label>
+                                    <input type="radio" name="address" id="unhandy" value="ไม่สะดวก" required>
+                                    <label for="unhandy">ไม่สะดวก</label>
+                                    <input type="radio" name="address" id="unsure" value="ไม่แน่ใจ" required>
+                                    <label for="unsure">ไม่แน่ใจ</label>
+                                </td>
+                            </div.f4>
+
+
+                            <div.f5>
+                                <!-- Style Last Job -->
+                                <tr>
+                                    <td><label for="last_job">ลักษณะงานที่ทำในที่ทำงานล่าสุด</label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="text" id="last_job" name="LastJob:" size="46.9">
+                                    </td>
+                                </tr>
+                            </div.f5>
+
+                            <div.f6">
+                                <!-- Questions -->
+                                <tr>
+                                    <td><label for="questions">คำถาม</label></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><textarea cols="49" rows="5" id="questions"
+                                            name="Questions:"></textarea></td>
+                                </tr>
+                                </div.f6>
+                        </table>
+
+                        <div.f7>
+                            <!-- Button Submit -->
+                            <td><button type="submit">ส่งใบสมัคร</button></td>
+                        </div.f7>
+                    </form>
+            </main>
+            </center>
+        </article>
+
+        <footer>
+            <p>65160013 Jukkapong Kochpuak</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
