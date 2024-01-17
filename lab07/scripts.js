@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded",function() {
         renderTodoList();
     }
 
+    function toggleComplete(index) {
+        todos[index].completed = !todos[index].completed;
+        renderTodoList();
+    }
+
     function renderTodoList() {
         console.log(todos);
         todoList.innerHTML = "";
