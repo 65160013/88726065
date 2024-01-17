@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded",function() {
     const todoList = document.getElementById("todo-list");
     const todoInput = document.getElementById("todo-input");
     const addButton = document.getElementById("add-button");
-
+    
+    // อาร์เรย์สำหรับเก็บรายการ Todo
     let todos = [];
 
     function addTodo() {
@@ -18,20 +19,24 @@ document.addEventListener("DOMContentLoaded",function() {
         }
     }
 
+    // ลบรายการ Todo
     function deleteTodo(index) {
         todos.splice(index,1);
         renderTodoList();
     }
 
+    // ตรวจสอบ or ยกเลิกการเสร็จสิ้นรายการ Todo
     function toggleComplete(index) {
         todos[index].completed = !todos[index].completed;
         renderTodoList();
     }
 
+    // แสดงรายการ Todo บนหน้าเว็บ
     function renderTodoList() {
         console.log(todos);
         todoList.innerHTML = "";
 
+        // สร้างแสดงรายการ Todo โดยมีปุ่ม ลบ เสร็จ ยกเลิก สำหรับแต่ละรายการที่เพิ่มเข้ามาใหม่
         for(let i = 0; i < todos.length; i++) {
             const todoItem = todos[i];
             const listItem = document.createElement("li");
@@ -51,12 +56,16 @@ document.addEventListener("DOMContentLoaded",function() {
         }
     }
 
+    // การกดปุ่ม "เพิ่ม"
     addButton.addEventListener("click", addTodo);
 
+    // การกดปุ่ม Enter ใน input
     todoInput.addEventListener("keypress", function(event) {
         if(event.key === "Enter") {
             addTodo();
         }
     });
+
+    // แสดงรายการ Todo คร้ังแรก
     renderTodoList();
 });
