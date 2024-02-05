@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous" origin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Book DB - JSON</title>
+</head>
+
+<body>
+    <div id="book_header">
+        <center>
+            <h3>Book DB :: Add / Edit</h3>
+        </center>
+    </div>
+    
+    <br />
+    <button id="btn" type="button" onclick="window.location.href='./search.html'">กลับหน้า <u>SearchBook</u></button>
+    <br/>
+    <br/>
+    <br/>
+    <center>
+    
+    <input type="text" id="book_name" placeholder="ชื่อหนังสือ"><br>
+    <input type="text" id="book_price" placeholder="ราคา"><br>
+    <input type="text" id="book_author1" placeholder="ผู้แต่ง-1"><br>
+    <input type="text" id="book_author2" placeholder="ผู้แต่ง-2"><br>
+    <input type="text" id="book_author3" placeholder="ผู้แต่ง-3"><br>
+    <br />
+    
+    <button id="btn" onclick="addBook()">บันทึก</button>
+    </center>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        var id = urlParams.get('id');
+        var bookid = -1;
+        var books = [];
+        if(localStorage.getItem('books')) {
+            var dataArray = localStorage.getItem('books');
+            books = JSON.parse(dataArray);
+        }
+        if(id) {
+            for(var i = 0 ,j = books.length; i < j; i++) {
+                if(books[i].id == id) {
+                    bookid = i;
+                    document.getElementById("book_name").value = books[i].name;
+                    document.getElementById("book_price").value = books[i].price;
+
+                    let author_id = 1;
+                    books[i].author.forEach(author => {
+                        document.getElementById(`book_author${author_id}`).value = author;
+                        author_id++;
+                    });
+                    break;
+                }
+            }
+            
+        }
+        function addBook() {
+            var name = document.getElementById("book_name").value;
+            var price = document.getElementById("book_price").value;
+
+            var author = [];
+            if(document.getElementById("book_author1").value.length > 0) {
+                author.push(document.getElementById("book_author1").value);
+            }
+            if(document.getElementById("book_author2").value.length > 0) {
+                author.push(document.getElementById("book_author2").value);
+            }
+            if(document.getElementById("book_author3").value.length > 0) {
+                author.push(document.getElementById("book_author3").value);
+            }
+
+            if(bookid == -1) {
+                bookid = findMaxBookId() + 1;
+                
+                var book = {
+                    id: bookid,
+                    name: name,
+                    price: price,
+                    author
+                };
+
+                books.push(book);
+            }
+            else {
+                books[bookid].name = name;
+                books[bookid].price = price;
+                books[bookid].author = author;
+            }
+            localStorage.setItem("books",JSON.stringify(books));
+
+            window.location.href = 'search.html';
+        }
+        function findMaxBookId() {
+            var max = 0;
+            for(var i = 0; i < books.length; i++) {
+                if(books[i].id > max) {
+                    max = books[i].id;
+                }
+            }
+            return max;
+        }     
+    </script>
+</body>
+</html>

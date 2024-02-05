@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book DB - JSON</title>
+</head>
+
+<body>
+    <h3>Book DB</h3>
+    เพิ่มหนังสือ :
+    <input type="hidden" id="id">
+    <input type="text" id="book_name" placeholder="ชื่อหนังสือ">
+    <input type="text" id="book_price" placeholder="ราคา">
+    <button onclick="addBook()">Save</button>
+    <hr>
+    ค้นหาหนังสือ : <input type="text" id="search" onkeyup="searchBook()"> <br>
+    <div id="result"></div>
+    <script>
+        var books;
+
+        function searchBook() {
+            var search = document.getElementById("search").value;
+            var result = document.getElementById("result");
+            var html = "";
+            for (var i = 0; i < books.length; i++) {
+                str = books[i].id + "|" + books[i].name + "|" + books[i].price;
+
+                if(str.toLowerCase().includes(search.toLowerCase())) {
+                    html += "<img src='https://t.ly/mtMN' onclick='editBook(" + books[i].id + ")'>" +
+                    books[i].id + " : " + books[i].name + " : " + books[i].price +
+                    "<img src='https://t.ly/523J' onclick='deleteBook(" + books[i].id + ")'>" + "<br>";
+                }
+            }
+            result.innerHTML = "<hr>ผลการค้นหา<br>" + html;
+        }
+        function findMaxBookId() {
+            var max = 0;
+            for(var i = 0; i < books.length; i++) {
+                if(books[i].id > max) {
+                    max = books[i].id;
+                }
+            }
+            return max;
+        }
+        function addBook() {
+            var id = document.getElementById("id").value;
+            var name = document.getElementById("book_name").value;
+            var price = document.getElementById("book_price").value;
+
+            if(id == "") {
+                id = findMaxBookId() + 1;
+                
+                var book = {
+                    id: id,
+                    name: name,
+                    price: price
+                };
+
+                books.push(book);
+            }
+            else {
+                for(var i = 0; i < books.length; i++) {
+                    if(books[i].id == id) {
+                        books[i].name = name;
+                        books[i].price = price;
+                    }
+                }
+            }
+            localStorage.setItem("books",JSON.stringify(books));
+
+            document.getElementById("id").value = "";
+            document.getElementById("book_name").value = "";
+            document.getElementById("book_price").value = "";
+            document.getElementById("book_name").focus();
+
+            searchBook();
+        }
+        function deleteBook(id) {
+            
+            for(var i = 0; i < books.length; i++) {
+                if(books[i].id == id) {
+                    books.splice(i,1);
+                    console.log("delete at " + id);
+                }
+            }
+
+            localStorage.setItem("books",JSON.stringify(books));
+            
+            searchBook();
+        }
+        function editBook(id) {
+            for(var i = 0; i < books.length; i++) {
+                if(books[i].id == id) {
+                    document.getElementById("id").value = books[i].id;
+                    document.getElementById("book_name").value = books[i].name;
+                    document.getElementById("book_price").value = books[i].price;
+                }
+            }
+        }
+
+        var book = JSON.parse(localStorage.getItem("books"));
+
+        if(books == null) {
+            books = [];
+        }
+
+        searchBook();
+    </script>
+</body>
+</html>

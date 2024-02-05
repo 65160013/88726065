@@ -1,0 +1,58 @@
+body {
+    font-family: 'Itim', sans-serif;
+    padding: 0px 100px 10px 100px;
+    margin: 0px 0px 0px 50px;
+}
+
+#book_header {
+    background-color: rgb(5, 50, 19);
+    color: white;
+    box-shadow: 5px 5px 5px rgb(6, 179, 67);
+    border-radius: 20px;
+    font-size: large;
+}
+
+table,
+th,
+td,
+tr {
+    border: 1px solid;
+}
+
+/* a {
+    text-decoration: none;
+    opacity: 1;
+    background-color: rgb(5, 50, 19);
+    color: white;
+    border-radius: 20px;
+    font-size: medium;
+    width: 20px;
+    padding: 10px;
+
+}
+
+a:hover {
+    border: 2px solid black;
+    color: black;
+    font-weight: bolder;
+    opacity: 0.7;
+    background-color: rgb(99, 178, 97);
+} */
+
+#btn {
+    transition: all 200ms ease;
+    opacity: 1;
+    background-color: rgb(5, 50, 19);
+    color: white;
+    border-radius: 20px;
+    font-size: medium;
+    width: 100px;
+}
+
+#btn:hover {
+    border: 2px solid black;
+    color: black;
+    font-weight: bolder;
+    opacity: 0.7;
+    background-color: rgb(99, 178, 97);
+}

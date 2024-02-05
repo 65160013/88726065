@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "แค่ต้องคิด ก็ผิดแล้ว",
+        "price": "699",
+        "author": [
+            "Steve Krug",
+            "ชาลี พงษ์สง่างาน",
+            "นิรันดร์ ประวิทย์ธนา"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "HTML5 JavaScript + CSS3 ฉบับสมบูรณ์",
+        "price": "229",
+        "author": [
+            "จีราวุธ วารินทร์",
+            "-",
+            "-"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "The Pragmatic Programmer",
+        "price": "1690",
+        "author": [
+            "Andrew Hunt",
+            "David Thomas",
+            "-"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Head First Java",
+        "price": "649",
+        "author": [
+            "Kathy Sierra",
+            "Bert Bates",
+            "-"
+        ]
+    }
+]
