@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <title>Lab10-2: Inline Editor</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app" v-cloak v-on:click="hideTooltip">
+        <div class="tooltip" v-on:click.stop v-if="show_tooltip">
+            <input type="text" v-model="text_context"/>
+        </div>
+        <p v-on:click.stop="toggleTooltip">{{text_context}}</p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    show_tooltip: false,
+                    text_context: 'แก้ไขข้อความ'
+                }
+            },
+            methods: {
+                hideTooltip: function() {
+                    this.show_tooltip = false;
+                },
+                toggleTooltip: function() {
+                    this.show_tooltip = !this.show_tooltip;
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

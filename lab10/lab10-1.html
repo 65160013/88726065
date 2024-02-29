@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <title>Lab10-1: Navigation Menu</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <nav v-bind:class="active" v-on:click.prevent>
+            <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+            <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
+            <a href="#" class="services" v-on:click="makeActive('services')">Serivces</a>
+            <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
+        </nav>
+        <p>You Choose
+            <b>{{active}}</b>
+        </p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    active: 'home'
+                }
+            },
+            methods: {
+                makeActive: function(item) {
+                    this.active = item;
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
